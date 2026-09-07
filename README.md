@@ -1,4 +1,4 @@
-# VideoSummAI 🎬
+# VideoSumm 🎬
 
 Transform Media into Insight with VideoSummAI. This is a modern React application that leverages Google's Gemini AI to analyze videos, audio files, and YouTube links, generating comprehensive summaries, transcripts, and overviews.
 
