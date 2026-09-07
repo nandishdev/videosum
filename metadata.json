@@ -1,0 +1,7 @@
+{
+  "name": "VideoSumm AI",
+  "description": "An intelligent video summarization tool powered by Gemini 2.5 Flash. Upload short videos to generate detailed summaries, extract key points, or identify action items instantly.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
