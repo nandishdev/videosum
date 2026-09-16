@@ -1,16 +1,37 @@
 <svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
-  <!-- Background Gradient -->
+  <!-- Define Gradients and Filters -->
   <defs>
-    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#1e3a8a;stop-opacity:1" />
+    <!-- Main Background Gradient -->
+    <linearGradient id="mainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0e27;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1a1f3a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f1729;stop-opacity:1" />
     </linearGradient>
+    
+    <!-- Accent Gradient (Purple to Blue) -->
     <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:1" />
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+    
+    <!-- Gold Accent -->
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Glow Effect -->
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Strong Glow -->
+    <filter id="strongGlow">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
       <feMerge>
         <feMergeNode in="coloredBlur"/>
         <feMergeNode in="SourceGraphic"/>
@@ -18,63 +39,109 @@
     </filter>
   </defs>
   
-  <!-- Main Background -->
-  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#mainGradient)"/>
   
-  <!-- Decorative circles in background -->
-  <circle cx="150" cy="100" r="120" fill="#8b5cf6" opacity="0.1"/>
-  <circle cx="1050" cy="530" r="150" fill="#3b82f6" opacity="0.1"/>
+  <!-- Decorative Background Elements -->
+  <circle cx="100" cy="80" r="180" fill="#7c3aed" opacity="0.08"/>
+  <circle cx="1100" cy="550" r="200" fill="#3b82f6" opacity="0.08"/>
+  <circle cx="600" cy="-100" r="150" fill="#8b5cf6" opacity="0.05"/>
   
-  <!-- Left side: Video/Media Icon -->
-  <g transform="translate(200, 200)">
-    <!-- Play button background circle -->
-    <circle cx="100" cy="100" r="90" fill="url(#accentGradient)" filter="url(#glow)"/>
+  <!-- Grid Background (subtle) -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.03"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- LEFT SECTION: Video/AI Icon -->
+  <g transform="translate(180, 180)">
+    <!-- Outer Circle Ring -->
+    <circle cx="110" cy="110" r="130" fill="none" stroke="url(#accentGradient)" stroke-width="3" opacity="0.3"/>
+    <circle cx="110" cy="110" r="120" fill="none" stroke="url(#accentGradient)" stroke-width="1" opacity="0.2"/>
     
-    <!-- Play button triangle -->
-    <polygon points="70,65 70,135 145,100" fill="white"/>
+    <!-- Main Circle with Gradient -->
+    <circle cx="110" cy="110" r="110" fill="url(#accentGradient)" filter="url(#strongGlow)"/>
     
-    <!-- Accent sparkles -->
-    <g opacity="0.8">
-      <circle cx="200" cy="50" r="8" fill="#fbbf24"/>
-      <circle cx="220" cy="80" r="6" fill="#fbbf24"/>
-      <circle cx="50" cy="170" r="7" fill="#fbbf24"/>
+    <!-- Play Button (Main Icon) -->
+    <polygon points="70,60 70,160 180,110" fill="white" opacity="0.95"/>
+    
+    <!-- AI Sparkles -->
+    <g opacity="0.9">
+      <!-- Top Right Sparkle -->
+      <circle cx="240" cy="40" r="6" fill="url(#goldGradient)"/>
+      <circle cx="240" cy="40" r="10" fill="url(#goldGradient)" opacity="0.3"/>
+      
+      <!-- Bottom Left Sparkle -->
+      <circle cx="30" cy="200" r="5" fill="url(#goldGradient)"/>
+      <circle cx="30" cy="200" r="9" fill="url(#goldGradient)" opacity="0.3"/>
+      
+      <!-- Middle Right Sparkle -->
+      <circle cx="250" cy="120" r="4" fill="url(#goldGradient)"/>
+      <circle cx="250" cy="120" r="8" fill="url(#goldGradient)" opacity="0.3"/>
     </g>
   </g>
   
-  <!-- Right side: Arrow and Text -->
-  <g transform="translate(550, 150)">
-    <!-- Arrow -->
+  <!-- CENTER SECTION: Arrow and Transformation -->
+  <g transform="translate(520, 200)">
+    <!-- Arrow Line -->
     <defs>
       <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-        <polygon points="0 0, 10 3, 0 6" fill="#fbbf24" />
+        <polygon points="0 0, 10 3, 0 6" fill="url(#goldGradient)" />
       </marker>
     </defs>
-    <line x1="0" y1="40" x2="150" y2="40" stroke="#fbbf24" stroke-width="6" marker-end="url(#arrowhead)"/>
+    <line x1="0" y1="60" x2="140" y2="60" stroke="url(#goldGradient)" stroke-width="5" marker-end="url(#arrowhead)" opacity="0.9"/>
     
-    <!-- Waveform lines -->
-    <line x1="20" y1="20" x2="20" y2="60" stroke="#3b82f6" stroke-width="4" opacity="0.7"/>
-    <line x1="40" y1="10" x2="40" y2="70" stroke="#3b82f6" stroke-width="4" opacity="0.7"/>
-    <line x1="60" y1="25" x2="60" y2="55" stroke="#3b82f6" stroke-width="4" opacity="0.7"/>
+    <!-- Decorative circles along arrow -->
+    <circle cx="40" cy="60" r="6" fill="url(#goldGradient)" opacity="0.6"/>
+    <circle cx="100" cy="60" r="6" fill="url(#goldGradient)" opacity="0.6"/>
   </g>
   
-  <!-- Main Text -->
-  <text x="600" y="380" font-family="Arial, sans-serif" font-size="72" font-weight="bold" text-anchor="middle" fill="white" letter-spacing="2">
+  <!-- RIGHT SECTION: Summary/Document Icon -->
+  <g transform="translate(860, 180)">
+    <!-- Document Background -->
+    <rect x="20" y="20" width="90" height="140" rx="6" fill="url(#accentGradient)" filter="url(#softGlow)" opacity="0.9"/>
+    
+    <!-- Document Lines (Text representation) -->
+    <line x1="35" y1="40" x2="95" y2="40" stroke="white" stroke-width="3" opacity="0.9"/>
+    <line x1="35" y1="58" x2="85" y2="58" stroke="white" stroke-width="2" opacity="0.7"/>
+    <line x1="35" y1="74" x2="85" y2="74" stroke="white" stroke-width="2" opacity="0.7"/>
+    <line x1="35" y1="90" x2="80" y2="90" stroke="white" stroke-width="2" opacity="0.7"/>
+    <line x1="35" y1="106" x2="85" y2="106" stroke="white" stroke-width="2" opacity="0.7"/>
+    <line x1="35" y1="122" x2="75" y2="122" stroke="white" stroke-width="2" opacity="0.7"/>
+    <line x1="35" y1="138" x2="85" y2="138" stroke="white" stroke-width="2" opacity="0.7"/>
+    
+    <!-- Decorative corner accent -->
+    <circle cx="115" cy="15" r="8" fill="url(#goldGradient)"/>
+  </g>
+  
+  <!-- MAIN TEXT SECTION -->
+  <!-- Main Title -->
+  <text x="600" y="420" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="88" font-weight="900" text-anchor="middle" fill="white" letter-spacing="-1">
     VideoSumm
   </text>
   
-  <!-- Tagline -->
-  <text x="600" y="450" font-family="Arial, sans-serif" font-size="36" text-anchor="middle" fill="#fbbf24" font-weight="500">
+  <!-- Subtitle/Tagline -->
+  <text x="600" y="480" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="32" text-anchor="middle" fill="url(#goldGradient)" font-weight="300" letter-spacing="0.5">
     Transform Media into Insight
   </text>
   
-  <!-- AI Badge -->
-  <g transform="translate(600, 510)">
-    <rect x="-80" y="-20" width="160" height="50" rx="25" fill="none" stroke="#8b5cf6" stroke-width="2"/>
-    <text x="0" y="15" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="#8b5cf6" font-weight="600">
-      Powered by Gemini AI
+  <!-- Tech Stack Badge -->
+  <g transform="translate(600, 535)">
+    <rect x="-150" y="-20" width="300" height="45" rx="22" fill="none" stroke="url(#accentGradient)" stroke-width="2" opacity="0.8"/>
+    <text x="0" y="15" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="18" text-anchor="middle" fill="url(#accentGradient)" font-weight="500">
+      Powered by Google Gemini AI
     </text>
   </g>
   
-  <!-- Bottom accent line -->
-  <line x1="100" y1="600" x2="1100" y2="600" stroke="url(#accentGradient)" stroke-width="3" opacity="0.6"/>
+  <!-- Bottom Accent Line -->
+  <line x1="80" y1="605" x2="1120" y2="605" stroke="url(#accentGradient)" stroke-width="2" opacity="0.5"/>
+  
+  <!-- Corner Branding (GitHub link indicator) -->
+  <g opacity="0.6">
+    <text x="1160" y="620" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" text-anchor="end" fill="url(#accentGradient)" font-weight="400">
+      github.com/nandishdev/videosum
+    </text>
+  </g>
 </svg>
